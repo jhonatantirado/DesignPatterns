@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using TemplatePattern.Comparable;
 
 namespace TemplatePattern
 {
@@ -17,18 +15,6 @@ namespace TemplatePattern
             Console.WriteLine();
             coffee.WantsCondiments = true;
             coffee.Prepare();
-
-            var people = new List<Person> { new Person("Ram", 25), new Person("Abishek", 12), new Person("Ram", 18), new Person("Abishek", 18) };
-            foreach (var person in people)
-            {
-                Console.Write(person);
-            }
-            people.Sort();
-            Console.WriteLine();
-            foreach (var person in people)
-            {
-                Console.Write(person);
-            }
         }
     }
 }
