@@ -39,3 +39,16 @@ There are three kinds of Design Patterns:
 * [Strategy](/StrategyPattern)
 * [Template](/TemplatePattern)
 * [Visitor](/VisitorPattern)
+
+## Missing Patterns
+-----------------------------------------
+* Abstract Factory
+* Interpreter
+* Memento
+
+## Requirements
+-----------------------------------------
+Net 8.0
+Visual Code
+
+Operating System: Windows, Linux, Mac
