@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Diagnostics;
 using FlyweightPattern.Videogame;
 
 Console.WriteLine("Hello, World!");
@@ -44,3 +45,7 @@ for (int i = 0; i < 1000; i++)
 }
 
 game.Draw("PeruCanvas");
+
+var memoryUsageInBytes = Process.GetCurrentProcess().WorkingSet64;
+var memoryUsage = memoryUsageInBytes / (1024*1024);
+Console.WriteLine("Memory usage is {0} MB" ,memoryUsage);
