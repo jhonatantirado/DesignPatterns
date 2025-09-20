@@ -2,7 +2,7 @@ using System;
 
 namespace FlyweightPattern.Videogame;
 
-public class ParticleTypeFactory
+public sealed class ParticleTypeFactory
 {
     private static ParticleTypeFactory? instance = null;
     private static Dictionary<string, ParticleType> _particleTypes;
