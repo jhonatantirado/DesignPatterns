@@ -19,6 +19,7 @@ public class Particle
 
     public void Draw(string canvas)
     {
+        Console.WriteLine("Vector is {0} and speed is {1}", _vector, _speed);
         _particleType.Draw(canvas, _coordinates);
     }
 
