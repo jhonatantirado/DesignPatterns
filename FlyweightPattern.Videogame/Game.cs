@@ -11,7 +11,7 @@ public class Game
     {
         _name = name;
         _particles = [];
-        _particleTypeFactory = new ParticleTypeFactory();
+        _particleTypeFactory = ParticleTypeFactory.Instance();
         InitializeFactory();
     }
 
@@ -39,6 +39,11 @@ public class Game
 
     public void Draw(string canvas)
     {
+        var counter = _particleTypeFactory.GetCount();
+        var count = _particleTypeFactory.Count();
+        Console.WriteLine("Number of ParticleType elements according to counter: {0}", counter);
+        Console.WriteLine("Number of ParticleType elements according to Dictionary: {0}", count);
+
         Console.WriteLine("Drawing all particles in canvas {0}", canvas);        
         foreach (var particle in _particles)
         {

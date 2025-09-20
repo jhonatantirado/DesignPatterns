@@ -6,7 +6,7 @@ Console.WriteLine("Welcome to the game Peru!");
 
 string gameName = "Peru";
 string canvas = "Amazon";
-int particleCount = 10;
+int particleCount = 2;
 
 var game = new Game(gameName);
 game.AddParticle("ammo01.jpg", "red", "10.45,20.67", "1", 100);

@@ -4,10 +4,22 @@ namespace FlyweightPattern.Videogame;
 
 public class ParticleTypeFactory
 {
+    private static ParticleTypeFactory? instance = null;
     private readonly Dictionary<string, ParticleType> _particleTypes;
-    public ParticleTypeFactory()
+
+    public static int _particleTypesCount = 0;
+    private ParticleTypeFactory()
     {
         _particleTypes = new Dictionary<string, ParticleType>();
+    }
+
+    public static ParticleTypeFactory Instance()
+    {
+        if (instance == null)
+        {
+            instance = new ParticleTypeFactory();
+        }
+        return instance;
     }
 
     public ParticleType GetParticleType(string sprite, string color)
@@ -17,8 +29,19 @@ public class ParticleTypeFactory
 
         if (!_particleTypes.ContainsKey(key))
             _particleTypes.Add(key, new ParticleType(sprite, color));
+            ++ _particleTypesCount;
 
         return _particleTypes[key];
+    }
+
+    public int GetCount()
+    {
+        return _particleTypesCount;
+    }
+
+    public int Count()
+    {
+        return _particleTypes.Count;
     }
 
     public string GetDictionaryToString()
@@ -29,7 +52,7 @@ public class ParticleTypeFactory
         {
             dictionaryString = string.Join(", ", _particleTypes.Select(kvp => $"{kvp.Key}: {kvp.Value}"));
         }
-               
+
         return dictionaryString;
     }
 
