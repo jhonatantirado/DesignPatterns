@@ -2,10 +2,13 @@
 using System.Diagnostics;
 using FlyweightPattern.Videogame;
 
-Console.WriteLine("Hello, World!");
 Console.WriteLine("Welcome to the game Peru!");
 
-var game = new Game();
+string gameName = "Peru";
+string canvas = "Amazon";
+int particleCount = 10;
+
+var game = new Game(gameName);
 game.AddParticle("ammo01.jpg", "red", "10.45,20.67", "1", 100);
 game.AddParticle("ammo02.jpg", "red", "10.45,20.67", "2", 100);
 game.AddParticle("ammo03.jpg", "red", "10.45,20.67", "3", 100);
@@ -18,33 +21,33 @@ game.AddParticle("ammo03.jpg", "blue", "10.45,20.67", "9", 300);
 game.AddParticle("ammo04.jpg", "blue", "10.45,20.67", "10", 300);
 game.AddParticle("ammo01.jpg", "red", "10.45,20.67", "11", 1000);
 
-Random random = new Random();
+Random random = new();
 
-for (int i = 0; i < 1000; i++)
+for (int i = 0; i < particleCount; i++)
 {
     var rand = random.Next(0, 1000);
     game.AddParticle("ammo01.jpg", "red","10.45,20.67", i.ToString(), rand);
 }
 
-for (int i = 0; i < 1000; i++)
+for (int i = 0; i < particleCount; i++)
 {
     var rand = random.Next(0, 1000);
     game.AddParticle("ammo02.jpg", "red", "10.45,20.68", i.ToString(), rand);
 }
 
-for (int i = 0; i < 1000; i++)
+for (int i = 0; i < particleCount; i++)
 {
     var rand = random.Next(0, 1000);
     game.AddParticle("ammo03.jpg", "red","10.45,20.69", i.ToString(), rand);
 }
 
-for (int i = 0; i < 1000; i++)
+for (int i = 0; i < particleCount; i++)
 {
     var rand = random.Next(0, 1000);
     game.AddParticle("ammo04.jpg", "red", "10.45,20.70", i.ToString(), rand);
 }
 
-game.Draw("PeruCanvas");
+game.Draw(canvas);
 
 var memoryUsageInBytes = Process.GetCurrentProcess().WorkingSet64;
 var memoryUsage = memoryUsageInBytes / (1024*1024);

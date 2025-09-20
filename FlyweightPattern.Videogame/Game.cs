@@ -4,18 +4,19 @@ namespace FlyweightPattern.Videogame;
 
 public class Game
 {
+    private readonly string _name;
     public List<Particle> _particles;
-    private ParticleTypeFactory _particleTypeFactory;
-
-    public Game()
+    private readonly ParticleTypeFactory _particleTypeFactory;
+    public Game(string name)
     {
+        _name = name;
         _particles = [];
+        _particleTypeFactory = new ParticleTypeFactory();
         InitializeFactory();
     }
 
     private void InitializeFactory()
     {
-        _particleTypeFactory = new ParticleTypeFactory();
         _particleTypeFactory.GetParticleType("ammo01.jpg", "red");
         _particleTypeFactory.GetParticleType("ammo02.jpg", "red");
         _particleTypeFactory.GetParticleType("ammo03.jpg", "red");
