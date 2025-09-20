@@ -4,19 +4,20 @@ namespace FlyweightPattern.Videogame;
 
 public sealed class ParticleTypeFactory
 {
-    private static ParticleTypeFactory? instance = null;
+    private static readonly ParticleTypeFactory instance = new ParticleTypeFactory();
     private static Dictionary<string, ParticleType> _particleTypes;
+
+    static ParticleTypeFactory()
+    {
+        _particleTypes = new Dictionary<string, ParticleType>();
+    }
     private ParticleTypeFactory()
     {
         _particleTypes = new Dictionary<string, ParticleType>();
     }
 
     public static ParticleTypeFactory Instance()
-    {
-        if (instance == null)
-        {
-            instance = new ParticleTypeFactory();
-        }
+    {        
         return instance;
     }
 
