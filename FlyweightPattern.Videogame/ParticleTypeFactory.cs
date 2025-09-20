@@ -6,8 +6,6 @@ public class ParticleTypeFactory
 {
     private static ParticleTypeFactory? instance = null;
     private readonly Dictionary<string, ParticleType> _particleTypes;
-
-    public static int _particleTypesCount = 0;
     private ParticleTypeFactory()
     {
         _particleTypes = new Dictionary<string, ParticleType>();
@@ -29,14 +27,8 @@ public class ParticleTypeFactory
 
         if (!_particleTypes.ContainsKey(key))
             _particleTypes.Add(key, new ParticleType(sprite, color));
-            ++ _particleTypesCount;
 
         return _particleTypes[key];
-    }
-
-    public int GetCount()
-    {
-        return _particleTypesCount;
     }
 
     public int Count()

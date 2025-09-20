@@ -39,10 +39,11 @@ public class Game
 
     public void Draw(string canvas)
     {
-        var counter = _particleTypeFactory.GetCount();
-        var count = _particleTypeFactory.Count();
-        Console.WriteLine("Number of ParticleType elements according to counter: {0}", counter);
-        Console.WriteLine("Number of ParticleType elements according to Dictionary: {0}", count);
+        var countParticleTypes = _particleTypeFactory.Count();
+        Console.WriteLine("Number of ParticleType elements according to Dictionary: {0}", countParticleTypes);
+
+        var countParticles = _particles.Count;
+        Console.WriteLine("Number of Particles elements in the list: {0}", countParticles);
 
         Console.WriteLine("Drawing all particles in canvas {0}", canvas);        
         foreach (var particle in _particles)
