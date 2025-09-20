@@ -17,29 +17,29 @@ public class Game
 
     private void InitializeFactory()
     {
-        _particleTypeFactory.GetParticleType("ammo01.jpg", "red");
-        _particleTypeFactory.GetParticleType("ammo02.jpg", "red");
-        _particleTypeFactory.GetParticleType("ammo03.jpg", "red");
-        _particleTypeFactory.GetParticleType("ammo01.jpg", "green");
-        _particleTypeFactory.GetParticleType("ammo02.jpg", "green");
-        _particleTypeFactory.GetParticleType("ammo03.jpg", "green");
-        _particleTypeFactory.GetParticleType("ammo01.jpg", "blue");
-        _particleTypeFactory.GetParticleType("ammo02.jpg", "blue");
-        _particleTypeFactory.GetParticleType("ammo03.jpg", "blue");
-        var serializedFactory = _particleTypeFactory.GetDictionaryToString();
+        ParticleTypeFactory.GetParticleType("ammo01.jpg", "red");
+        ParticleTypeFactory.GetParticleType("ammo02.jpg", "red");
+        ParticleTypeFactory.GetParticleType("ammo03.jpg", "red");
+        ParticleTypeFactory.GetParticleType("ammo01.jpg", "green");
+        ParticleTypeFactory.GetParticleType("ammo02.jpg", "green");
+        ParticleTypeFactory.GetParticleType("ammo03.jpg", "green");
+        ParticleTypeFactory.GetParticleType("ammo01.jpg", "blue");
+        ParticleTypeFactory.GetParticleType("ammo02.jpg", "blue");
+        ParticleTypeFactory.GetParticleType("ammo03.jpg", "blue");
+        var serializedFactory = ParticleTypeFactory.GetDictionaryToString();
         Console.WriteLine(serializedFactory);
     }
 
     public void AddParticle(string sprite, string color, string coordinates, string vector, float speed)
     {
-        ParticleType type = _particleTypeFactory.GetParticleType(sprite, color);
+        ParticleType type = ParticleTypeFactory.GetParticleType(sprite, color);
         Particle particle = new(type, coordinates, vector, speed);
         _particles.Add(particle);
     }
 
     public void Draw(string canvas)
     {
-        var countParticleTypes = _particleTypeFactory.Count();
+        var countParticleTypes = ParticleTypeFactory.Count();
         Console.WriteLine("Number of ParticleType elements according to Dictionary: {0}", countParticleTypes);
 
         var countParticles = _particles.Count;
