@@ -4,7 +4,7 @@ namespace FlyweightPattern.Videogame;
 
 public class Game
 {
-    private readonly Particle[] _particles;
+    public List<Particle> _particles;
     private ParticleTypeFactory _particleTypeFactory;
 
     public Game()
@@ -33,15 +33,12 @@ public class Game
     {
         ParticleType type = _particleTypeFactory.GetParticleType(sprite, color);
         Particle particle = new(type, coordinates, vector, speed);
-        _particles.Append(particle);
+        _particles.Add(particle);
     }
 
     public void Draw(string canvas)
     {
-        Console.WriteLine("Drawing all particles in canvas {0}", canvas);
-        var serializedFactory = _particleTypeFactory.GetDictionaryToString();
-        Console.WriteLine(serializedFactory);
-        
+        Console.WriteLine("Drawing all particles in canvas {0}", canvas);        
         foreach (var particle in _particles)
         {
             particle.Draw(canvas);
