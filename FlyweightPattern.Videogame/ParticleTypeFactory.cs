@@ -24,7 +24,7 @@ public sealed class ParticleTypeFactory
     public static ParticleType GetParticleType(string sprite, string color)
     {
         string key = sprite + "_" + color;
-        Console.WriteLine("Getting Particle Type with key {0}", key);
+        //Console.WriteLine("Getting Particle Type with key {0}", key);
 
         if (!_particleTypes.ContainsKey(key))
             _particleTypes.Add(key, new ParticleType(sprite, color));
